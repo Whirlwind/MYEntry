@@ -1,0 +1,33 @@
+PODS:
+  - IXPickerOverlayView (1.0)
+  - MYFramework (1.1):
+    - IXPickerOverlayView
+    - NSDate
+    - NSString
+    - NSUserDefaults+AppVersion
+    - UIView
+    - VersionString
+  - NSDate (0.0.3)
+  - NSString (0.1)
+  - NSUserDefaults+AppVersion (0.0.1)
+  - UIView (0.0.1)
+  - VersionString (0.1)
+
+DEPENDENCIES:
+  - MYFramework
+  - MYFramework (from `../MYFramework`)
+
+EXTERNAL SOURCES:
+  MYFramework:
+    :local: ../MYFramework
+
+SPEC CHECKSUMS:
+  IXPickerOverlayView: d50d7376fa4a93b976ad159bd877136946858123
+  MYFramework: 1d556a48462ecb5dafb903d05ad2da1801f873bd
+  NSDate: dd240230f76d67e87651980e7510e855ad392b09
+  NSString: 66d66fe184a3cc8acb377d88929afe4c222c2b6e
+  NSUserDefaults+AppVersion: 1f7bfc3e942edf48e02b79dcf51f4c07f0a42f70
+  UIView: 25f5581821d52431c4238d637cc3342fd51a69ff
+  VersionString: 723287538db58caaa7b67c439d02bc6e6ed94422
+
+COCOAPODS: 0.17.2
