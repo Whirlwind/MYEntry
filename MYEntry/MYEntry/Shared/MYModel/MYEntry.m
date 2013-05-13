@@ -163,12 +163,12 @@
 
 #pragma mark - DAO
 - (BOOL)save {
-    if (self.index != nil && [self.changes count] <= 0) {
+    if (self.index != nil && [_changes count] <= 0) {
         return YES;
     }
     [self setUpdatedAt:[NSDate date]];
     BOOL status = NO;
-    if (self.index == nil) { // C
+    if (_index == nil) { // C
         status = [self createEntry];
     } else { // U
         status = [self updateEntry];
