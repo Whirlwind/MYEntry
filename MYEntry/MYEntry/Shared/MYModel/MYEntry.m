@@ -166,7 +166,7 @@
     if (self.index != nil && [_changes count] <= 0) {
         return YES;
     }
-    [self setUpdatedAt:[NSDate date]];
+    [self setUpdatedAt:(MYDateTime *)[NSDate date]];
     BOOL status = NO;
     if (_index == nil) { // C
         status = [self createEntry];
@@ -181,7 +181,7 @@
 }
 
 - (BOOL)destroy {
-    [self setUpdatedAt:[NSDate date]];
+    [self setUpdatedAt:(MYDateTime *)[NSDate date]];
     return [self removeEntry];
 }
 
