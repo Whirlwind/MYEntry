@@ -64,6 +64,10 @@
     listening = old;
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+
+}
+
 #pragma mark - getter
 
 - (id)dataAccessor {
@@ -149,13 +153,10 @@
 
 #pragma mark - reverse
 - (void)reverseWithProperty:(NSString *)property {
-    SEL selector = [[self class] setterFromPropertyString:property];
     NSArray *change = (NSArray *)[self.changes valueForKey:property];
     if (change == nil)
         return;
-    MYPerformSelectorWithoutLeakWarningBegin
-    [self performSelector:selector withObject:change[0]];
-    MYPerformSelectorWithoutLeakWarningEnd
+    [self setValue:change[0] forKey:property];
 }
 
 - (void)reverse {
