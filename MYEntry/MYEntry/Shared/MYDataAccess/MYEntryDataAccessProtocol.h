@@ -29,7 +29,7 @@
 - (BOOL)updateEntry;
 - (BOOL)removeEntry;
 @optional
-+ (BOOL)clearEntries;
+- (BOOL)clearEntries;
 - (MYEntry *)firstEntry;
 - (NSInteger)countEntries;
 - (MYEntry *)entryAt:(NSNumber *)index;
