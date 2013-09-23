@@ -11,9 +11,11 @@
 @implementation MYEntry
 
 - (void)dealloc {
-    [[self listenProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self removeObserver:self forKeyPath:obj];
-    }];
+    if (listening) {
+        [[self listenProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [self removeObserver:self forKeyPath:obj];
+        }];
+    }
 }
 
 - (NSNumber *)index {
@@ -42,9 +44,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        listening = YES;
+        listening = NO;
         self.needPostLocalChangeNotification = YES;
-        [self listenProperty];
     }
     return self;
 }
@@ -57,9 +58,10 @@
 }
 
 - (void)disableListenProperty:(void(^)(void))block {
+    BOOL old = listening;
     listening = NO;
     block();
-    listening = YES;
+    listening = old;
 }
 
 #pragma mark - getter
@@ -109,6 +111,7 @@
     return @[];
 }
 - (void)listenProperty {
+    listening = YES;
     [[self listenProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self addObserver:self
                forKeyPath:obj

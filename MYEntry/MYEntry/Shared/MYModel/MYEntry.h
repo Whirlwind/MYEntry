@@ -31,6 +31,7 @@
 - (id)initWithIndex:(NSNumber *)index;
 
 #pragma mark - listen
+- (void)listenProperty;
 - (NSArray *)listenProperties;
 - (void)disableListenProperty:(void(^)(void))block;
 - (void)reverseWithProperty:(NSString *)property;
