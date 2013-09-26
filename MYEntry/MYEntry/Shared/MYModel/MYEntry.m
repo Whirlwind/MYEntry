@@ -68,6 +68,9 @@
 
 }
 
+- (id)valueForUndefinedKey:(NSString *)key {
+    return nil;
+}
 #pragma mark - getter
 
 - (id)dataAccessor {
